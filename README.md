@@ -1,2 +1,2 @@
-# svn-to-git-largefile-solution
-解決從svn挪檔案到git所遇到的問題
+# svn-to-git-solution
+提供從svn挪檔案到git的解決方案
