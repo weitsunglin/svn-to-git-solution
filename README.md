@@ -3,9 +3,9 @@
 ![git clone svn](https://github.com/weitsunglin/svn-to-git-solution/blob/main/git%20clone%20svn%20repo.jpg)
 
 ## 尋找大型檔案
-如果出現在.git中的大型檔案，代表歷史紀錄中曾有過大型檔案
-如果出現在專案中其餘路徑，代表現在還存在著大型檔案
-可自行替換 folder_path 
+如果出現在.git中的大型檔案，代表歷史紀錄中曾有過大型檔案 
+如果出現在專案中其餘路徑，代表現在還存在著大型檔案 
+可自行替換 folder_path  
 ```bat
 @echo off
 setlocal enabledelayedexpansion
