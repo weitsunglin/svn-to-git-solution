@@ -2,7 +2,13 @@
 
 ![git clone svn](https://github.com/weitsunglin/svn-to-git-solution/blob/main/git%20clone%20svn%20repo.jpg)
 
+
+## Git local repo設定 remote 目標
+
+![remote setting](https://github.com/weitsunglin/svn-to-git-solution/blob/main/remote%20setting.jpg)
+
 ## 尋找大型檔案
+
 如果出現在.git中的大型檔案，代表歷史紀錄中曾有過大型檔案 <br>
 如果出現在專案中其餘路徑，代表現在還存在著大型檔案 <br>
 可自行替換 folder_path  
@@ -65,6 +71,7 @@ git filter-repo --path example.txt --invert-paths --force
 
 
 ## 批次上傳檔案
+
 如果單次Push超過2GB，可使用批次Push功能。<br>
 cd TMDC_Inanna 可自行替換路徑。
 ```bat
@@ -98,6 +105,7 @@ pause
 
 ```
 ## 不斷地從svn撈進度push到git repo
+
 ```bat
 git svn init
 git svn fetch -r2074:HEAD
