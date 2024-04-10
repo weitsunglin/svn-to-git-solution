@@ -113,3 +113,6 @@ git svn rebase
 git push origin main
 ```
 
+## 注意事項 (要看)
+1. git clone svn 的 repo 預設的revision會是master，可將其改成main再push。
+2. 再github上建立repo時，先別建README.md，目的是讓歷史紀錄保持乾淨，這樣再跟svn repo合併時，才不會產生歷史紀錄不一致的問題。
