@@ -97,3 +97,11 @@ for /F "tokens=*" %%B in (commit-list.txt) do (
 pause
 
 ```
+## 不斷地從svn撈進度push到git repo
+```bat
+git svn init
+git svn fetch -r2074:HEAD
+git svn rebase
+git push origin main
+```
+
