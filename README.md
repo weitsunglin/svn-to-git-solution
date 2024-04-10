@@ -1,5 +1,21 @@
-# svn-to-git-solution
-提供從svn挪檔案到git的解決方案
+## 尋找大型檔案
+如果出現在.git中的大型檔案，代表歷史紀錄中曾有過大型檔案
+如果出現在專案中其餘路徑，代表現在還存在著大型檔案
+```bat
+@echo off
+setlocal enabledelayedexpansion
+
+set "folder_path=F:\_project\tmd_1.0\tmd_on_git\TMDC_Boost"
+set "min_size=104857600"
+
+echo find 100mb file:
+for /r "%folder_path%" %%F in (*.*) do (
+    set size=%%~zF
+    if !size! geq %min_size% echo %%F !size! bytes
+)
+
+pause
+```
 
 ## Git LFS 使用指南
 
@@ -55,3 +71,37 @@ git filter-repo --path example.txt --invert-paths --force
 
 以上介紹的三個操作是使用 Git LFS 管理大型檔案的基礎，幫助你有效地處理和維護項目中的大型檔案。
 
+
+## 批次上傳檔案
+如果單次Push超過2GB，可使用批次Push功能。
+```bat
+@echo off
+cd TMDC_Inanna
+echo cd cd cd cd cd
+
+:: 生成commit-list.txt，每10個提交紀錄一次
+git rev-list --topo-order --reverse HEAD > temp_commit_list.txt
+setlocal EnableDelayedExpansion
+set /a "line=0"
+set /a "count=0"
+
+for /F "tokens=*" %%A in (temp_commit_list.txt) do (
+    set /a "line+=1"
+    set /a "mod=line %% 10"
+    if !mod! equ 0 (
+        echo %%A >> commit-list.txt
+    )
+)
+del temp_commit_list.txt
+echo rev-list rev-list
+
+:: 遍歷commit-list.txt中的每個提交
+for /F "tokens=*" %%B in (commit-list.txt) do (
+    git reset --hard %%B
+    git push origin ReleaseWindows
+    echo Current SHA: %%B
+)
+
+pause
+
+```
