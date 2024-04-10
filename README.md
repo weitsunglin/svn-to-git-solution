@@ -24,10 +24,12 @@ pause
 
 ## Git LFS 使用指南
 
-當開發項目中需要處理大型檔案時，Git LFS（Large File Storage）提供了一種高效的管理方式。這裡介紹三個主要的 Git LFS 相關操作，幫助你更好地管理項目中的大型檔案。
+當開發項目中需要處理大型檔案時，Git LFS（Large File Storage）提供了一種高效的管理方式。<br>
+這裡介紹三個主要的 Git LFS 相關操作，幫助你更好地管理項目中的大型檔案。
 
 1. 追踪新的大型檔案
-在項目開始階段或當你需要開始追踪新類型的大型檔案時，可以使用 git lfs track 命令。這個命令將指定的檔案或檔案類型加入到 Git LFS 的追踪列表中。
+在項目開始階段或當你需要開始追踪新類型的大型檔案時，可以使用 git lfs track 命令。<br>
+這個命令將指定的檔案或檔案類型加入到 Git LFS 的追踪列表中。
 
 例如，要追踪 example.txt 文件，可以使用以下命令：
 
@@ -63,7 +65,7 @@ git filter-repo --path example.txt --invert-paths --force
 
 
 ## 批次上傳檔案
-如果單次Push超過2GB，可使用批次Push功能。
+如果單次Push超過2GB，可使用批次Push功能。<br>
 cd TMDC_Inanna 可自行替換路徑。
 ```bat
 @echo off
