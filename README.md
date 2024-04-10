@@ -1,6 +1,7 @@
 ## 尋找大型檔案
 如果出現在.git中的大型檔案，代表歷史紀錄中曾有過大型檔案
 如果出現在專案中其餘路徑，代表現在還存在著大型檔案
+可自行替換 folder_path 
 ```bat
 @echo off
 setlocal enabledelayedexpansion
@@ -24,22 +25,7 @@ pause
 1. 追踪新的大型檔案
 在項目開始階段或當你需要開始追踪新類型的大型檔案時，可以使用 git lfs track 命令。這個命令將指定的檔案或檔案類型加入到 Git LFS 的追踪列表中。
 
-例如，要追踪 iOS 框架中的 boost.framework 文件，可以使用以下命令：
-
-```bat
-git lfs track ‘IOS/framework/boost.framework/Versions/A/boost’
-```
-
-這樣，每當你提交這些文件時，Git LFS 會處理這些大型檔案，而不是將它們直接儲存在 Git 倉庫中。
-
-
-Git LFS 使用指南
-當開發項目中需要處理大型檔案時，Git LFS（Large File Storage）提供了一種高效的管理方式。這裡介紹三個主要的 Git LFS 相關操作，幫助你更好地管理項目中的大型檔案。
-
-1. 追踪新的大型檔案
-在項目開始階段或當你需要開始追踪新類型的大型檔案時，可以使用 git lfs track 命令。這個命令將指定的檔案或檔案類型加入到 Git LFS 的追踪列表中。
-
-例如，要追踪 iOS 框架中的 boost.framework 文件，可以使用以下命令：
+例如，要追踪 example.txt 文件，可以使用以下命令：
 
 ```bat
 git lfs track ‘example.txt’
@@ -52,7 +38,7 @@ git lfs track ‘example.txt’
 
 這個命令允許你指定要導入到 Git LFS 的文件或文件類型，並重新寫入倉庫歷史，以便這些文件由 Git LFS 管理。
 
-例如，要導入遊戲錄影和測試報告檔案到 Git LFS，可以使用以下命令：
+例如，要導入example.txt,example2.txt到 Git LFS，可以使用以下命令：
 
 ```bat
 git lfs migrate import --include="example.txt,example2.txt" --everything
@@ -63,7 +49,7 @@ git lfs migrate import --include="example.txt,example2.txt" --everything
 
 這個命令提供了一種方式來清理倉庫歷史，包括徹底移除大型檔案或敏感數據。
 
-例如，要從歷史中移除 LiveServer 的某個特定檔案，可以使用以下命令：
+例如，要從歷史中移除 example.txt 檔案，可以使用以下命令：
 
 ```bat
 git filter-repo --path example.txt --invert-paths --force
@@ -74,10 +60,10 @@ git filter-repo --path example.txt --invert-paths --force
 
 ## 批次上傳檔案
 如果單次Push超過2GB，可使用批次Push功能。
+cd TMDC_Inanna 可自行替換路徑。
 ```bat
 @echo off
-cd TMDC_Inanna
-echo cd cd cd cd cd
+cd TMDC_Inanna 
 
 :: 生成commit-list.txt，每10個提交紀錄一次
 git rev-list --topo-order --reverse HEAD > temp_commit_list.txt
