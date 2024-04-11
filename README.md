@@ -107,20 +107,20 @@ pause
 ## 不斷地從svn撈進度push到git repo
 
 ```bat
-    @echo off
-    set PROJECT_PATH=F:\_project\tmd_1.0\tmd_on_git
-    
-    for /d /r "%PROJECT_PATH%" %%d in (*) do (
-        if exist "%%d\.git" (
-            echo Found .git in: %%d
-            cd /d %%d
-    		git --version
-    		git svn fetch
-    		git svn rebase
-    		for /f "tokens=*" %%b in ('git branch --show-current') do set branch=%%b
-    		git push origin %branch%
-        )
+@echo off
+set PROJECT_PATH=F:\_project\tmd_1.0\tmd_on_git
+
+for /d /r "%PROJECT_PATH%" %%d in (*) do (
+    if exist "%%d\.git" (
+        echo Found .git in: %%d
+        cd /d %%d
+        git --version
+        git svn fetch
+        git svn rebase
+        for /f "tokens=*" %%b in ('git branch --show-current') do set branch=%%b
+        git push origin %branch%
     )
+)
 ```
 
 ## 注意事項 (要看)
