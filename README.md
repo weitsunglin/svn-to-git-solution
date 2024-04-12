@@ -141,6 +141,11 @@ for /d /r "%PROJECT_PATH%" %%d in (*) do (
     )
 )
 ```
+## 常用指令
+1. 從某地方複製資料夾到目的地: xcopy F:\_project\tmd_1.0\tmd_on_git\MisrSlot F:\_project\tmd_1.0\tmd_on_git\lfs-backup\MisrSlot\ /E /I /H /K
+2. 砍路徑中的資料夾: rd /s /q "F:\_project\tmd_1.0\tmd_on_git\lfs-backup"
+3. 移除最新的commit紀錄: git reset --hard HEAD~1
+
 
 ## 注意事項 (要看)
 1. git clone svn 的 repo 預設的分支會是master，可將其改成main再push。
