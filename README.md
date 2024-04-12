@@ -7,6 +7,24 @@
 
 ![remote setting](https://github.com/weitsunglin/svn-to-git-solution/blob/main/remote%20setting.jpg)
 
+## .git config 檔案中 設定 git-svn 路徑
+提供三種範例
+```
+[svn-remote "svn"]
+	url = http://192.168.1.183/svn/SouthPark
+	fetch = trunk:refs/remotes/origin/main
+```
+```
+[svn-remote "svn"]
+	url = http://192.168.1.183/svn/Casino/trunk
+	fetch = :refs/remotes/git-svn
+```
+```
+[svn-remote "svn"]
+	url = http://192.168.1.183/svn/ManganDahen
+	fetch = branches/Release:refs/remotes/origin/main
+```
+ 
 ## 尋找大型檔案
 
 如果出現在.git中的大型檔案，代表歷史紀錄中曾有過大型檔案 <br>
