@@ -1,3 +1,14 @@
+## SVN 搬移 REPO 到 GIT 扼要
+1. 基於svn url 用 git clone 建 repo
+2. 設定git remote (svn-git remote再第一步驟會幫你建好)
+3. 從svn clone repo下來通常預測會是master，要手動將其改成main (Browse references中查看)
+4. git push origin main 會遇到一些問題
+   1.大檔案
+   2.太多檔案
+   3.過去單次commit紀錄過大
+6. 如svn有新commit (git svn fetch → git svn rebase → git push)
+   1.可指定revision
+
 ## Git clone svn repo
 
 ![git clone svn](https://github.com/weitsunglin/svn-to-git-solution/blob/main/git%20clone%20svn%20repo.jpg)
