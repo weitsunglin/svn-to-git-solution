@@ -126,4 +126,5 @@ for /d /r "%PROJECT_PATH%" %%d in (*) do (
 ## 注意事項 (要看)
 1. git clone svn 的 repo 預設的分支會是master，可將其改成main再push。
 2. 再github上建立repo時，先別建README.md，目的是讓歷史紀錄保持乾淨，這樣再跟svn repo合併時，才不會產生歷史紀錄不一致的問題。
-3. 遇到單次commit過大，可調整緩衝區大小 git config --global http.postBuffer 524288000 (提高git commit 緩衝區大小: 500mb)
+3. 遇到單次commit過大，可調整緩衝區大小 git config --global http.postBuffer 524288000 (提高git commit 緩衝區大小: 500mb)。
+4. 可以不用上傳.gitattributes，因為要讓歷史紀錄保持乾淨，亦即跟svn一樣。
