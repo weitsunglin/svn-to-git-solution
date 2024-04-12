@@ -115,6 +115,7 @@ for /d /r "%PROJECT_PATH%" %%d in (*) do (
         echo Found .git in: %%d
         cd /d %%d
         git --version
+        :: git svn fetch -r2074:HEAD 從指定svn revision fetch 修訂歷史 到 git 
         git svn fetch
         git svn rebase
         for /f "tokens=*" %%b in ('git branch --show-current') do set branch=%%b
