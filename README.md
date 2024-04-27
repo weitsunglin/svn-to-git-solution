@@ -152,6 +152,29 @@ for /d /r "%PROJECT_PATH%" %%d in (*) do (
     )
 )
 ```
+```sh
+#!/bin/bash
+
+# 設定項目路徑
+PROJECT_PATH="/path/to/your/project"
+
+# 變例目錄下的所有文件夹
+find "$PROJECT_PATH" -type d | while read -r dir; do
+    if [[ -d "$dir/.git" ]]; then
+        echo "Found .git in: $dir"
+        cd "$dir" || exit
+        git --version
+        git svn fetch
+        git svn rebase
+        branch=$(git branch --show-current)
+        git push origin "$branch"
+    fi
+done
+
+echo "END"
+```
+
+
 ## 常用指令
 1. 從某地方複製資料夾到目的地: xcopy F:\_project\tmd_1.0\tmd_on_git\MisrSlot F:\_project\tmd_1.0\tmd_on_git\lfs-backup\MisrSlot\ /E /I /H /K
 2. 砍路徑中的資料夾: rd /s /q "F:\_project\tmd_1.0\tmd_on_git\lfs-backup"
