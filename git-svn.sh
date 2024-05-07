@@ -3,7 +3,6 @@
 # 设置游戏名称
 gameName="ManganDahen"
 branchesName="Release"
-
 startRev=1758
 endRev=1858
 
