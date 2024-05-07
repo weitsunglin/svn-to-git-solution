@@ -12,7 +12,8 @@ GITHUB_REPO_URL="https://github.com/OLD-RD2/TMDC_${gameName}"
 # 克隆 SVN 数据，限制为最新的 20 篇 commit
 mkdir "${gameName}"
 cd "${gameName}"
-git svn clone "${SVN_REPO_URL}" . -rHEAD~19:HEAD --authors-file=authors.txt
+git svn clone "${SVN_REPO_URL}" . -r1758:1858
+
 
 # SVN 克隆完成后，默认在 master 分支
 # 我们需要将它重命名为 Release，以匹配 GitHub 上的分支名称
