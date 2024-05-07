@@ -2,9 +2,14 @@
 
 # 设置游戏名称
 gameName="ManganDahen"
+branchesName="Release"
+
+startRev=1758
+endRev=1858
+
 
 # SVN 仓库的 URL
-SVN_REPO_URL="http://192.168.1.183/svn/${gameName}/branches/Release"
+SVN_REPO_URL="http://192.168.1.183/svn/${gameName}/branches/${branchesName}"
 
 # GitHub 仓库的 URL
 GITHUB_REPO_URL="https://github.com/OLD-RD2/TMDC_${gameName}"
@@ -12,7 +17,7 @@ GITHUB_REPO_URL="https://github.com/OLD-RD2/TMDC_${gameName}"
 # 克隆 SVN 数据，限制为最新的 20 篇 commit
 mkdir "${gameName}"
 cd "${gameName}"
-git svn clone "${SVN_REPO_URL}" . -r1758:1858
+git svn clone "${SVN_REPO_URL}" . -r${startRev}:${endRev}
 
 
 # SVN 克隆完成后，默认在 master 分支
