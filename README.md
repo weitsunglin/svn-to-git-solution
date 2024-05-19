@@ -224,5 +224,4 @@ echo "END"
 3. 遇到單次commit過大，可調整緩衝區大小 git config --global http.postBuffer 524288000 (提高git commit 緩衝區大小: 500mb)。
 4. 可以不用上傳.gitattributes，因為要讓歷史紀錄保持乾淨，亦即跟svn一樣。
 5. 遇到 pull遇到 fatal: refusing to merge unrelated histories。使用git pull origin main --allow-unrelated-histories。強制合併兩個不同的歷史紀錄。但不建議這樣做，盡量保持一致。
-
-
+6. 如果有對某一個github repo做lfs操作，要將其執行lfs push，以免github上的repo少了lfs的檔案。
