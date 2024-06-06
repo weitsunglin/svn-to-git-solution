@@ -28,7 +28,7 @@
 ```
 [svn-remote "svn"]
 	url = http://192.168.1.183/svn/Casino/trunk
-	fetch = :refs/remotes/git-svn
+	fetch = :refs/remotes/origin/main
 ```
 ```
 [svn-remote "svn"]
